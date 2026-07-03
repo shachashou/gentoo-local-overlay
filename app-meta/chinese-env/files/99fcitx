@@ -1,0 +1,13 @@
+# /etc/env.d/99fcitx
+# Environment variables for Fcitx5 input method framework
+#
+# These variables tell GTK, Qt, and other toolkits to use Fcitx5
+# as the input method module. Sourced automatically by
+# /etc/profile on login.
+
+GTK_IM_MODULE=fcitx
+QT_IM_MODULE=fcitx
+XMODIFIERS=@im=fcitx
+SDL_IM_MODULE=fcitx
+# GLFW uses IBus protocol; fcitx5 provides an IBus compatibility layer
+GLFW_IM_MODULE=ibus

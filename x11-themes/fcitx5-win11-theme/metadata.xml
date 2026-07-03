@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>local@gentoo.org</email>
+		<name>Gentoo Local Overlay</name>
+	</maintainer>
+	<longdescription>
+		A Windows 11 Fluent Design inspired theme for Fcitx5,
+		featuring rounded corners, semi-transparent
+		background with blur, and Win11 accent colors.
+	</longdescription>
+	<upstream>
+		<remote-id type="github">local/fcitx5-win11-theme</remote-id>
+	</upstream>
+</pkgmetadata>

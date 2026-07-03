@@ -9,6 +9,10 @@ All packages are for **amd64** only (`amd64` keyword).
 Only fall back to prebuilt packages (.deb, .rpm, AppImage, etc.) when source
 builds are genuinely infeasible (e.g., proprietary binaries with no public source).
 
+**Ask, don't assume**: When a user's request is ambiguous, ask for clarification
+before acting. Do not expand scope without confirmation (e.g.,
+"Chinese fonts" could mean Simplified-only — ask; don't install both).
+
 ## Repository Layout
 
 Each package has:
@@ -40,6 +44,24 @@ Each dependency must appear in **only one** variable (BDEPEND, RDEPEND, or DEPEN
 Portage handles cross-type deduplication automatically — do not repeat the same
 atom across multiple variables.
 
+### Dependency Verification
+
+Before writing any ebuild, verify **every** `::gentoo` dependency is real:
+
+1. Search `https://packages.gentoo.org/packages/<category>/<name>` for each
+   dependency atom.
+2. Confirm the package is stable on `amd64` (not just `~amd64`).
+3. **Never invent package names.** Gentoo package names often differ from
+   upstream project names (e.g., Fcitx 5 is `app-i18n/fcitx`, **not**
+   `app-i18n/fcitx5`; config tool is `app-i18n/fcitx-configtool`, **not**
+   `app-i18n/fcitx5-configtool`).
+
+### GUI Toolkit Preference
+
+This is a **KDE Plasma** environment. For GUI dependencies:
+- **Prefer Qt** — only depend on `-qt` IM modules and Qt-based tools.
+- Only add GTK dependencies when there is no Qt alternative.
+
 ## New Package Checklist
 
 When creating a new package (`<category>/<name>/`), the following files are
@@ -53,6 +75,13 @@ mandatory.  Create them all in one pass — never leave a package half-built.
 | `<name>-<version>.ebuild` | ✅ | EAPI=8, follows all Ebuild Conventions |
 | `Manifest` | ✅ | no need |
 | `files/` | ⚠️ optional | Desktop entries, launcher scripts, patches |
+
+#### media-fonts extra requirements
+
+Every `media-fonts/` package **must** include:
+- A fontconfig configuration file in `files/` (e.g., `60-<name>.conf`)
+- `pkg_postinst` with `eselect fontconfig enable <conf>` instructions
+- The conf file installed to `/etc/fonts/conf.avail/` in `src_install`
 
 ### Repository-level (create once, verify on each new package)
 

@@ -1,0 +1,15 @@
+[Groups/0]
+# Default input method group
+Name=Default
+DefaultLayout=us
+
+# Chinese Pinyin as the first (and default) input method
+[Groups/0/Items/0]
+Name=pinyin
+
+# Keyboard layout — US English
+[Groups/0/Items/1]
+Name=keyboard-us
+
+[GroupOrder]
+0=Default

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>local@gentoo.org</email>
+		<name>Gentoo Local Overlay</name>
+	</maintainer>
+	<longdescription>
+		Meta package that sets up a complete Chinese input environment
+		on Gentoo Linux with KDE Plasma. Pulls in Fcitx5, Chinese fonts,
+		and a Win11-inspired theme. Configures per-user Fcitx5 settings
+		for a Microsoft Pinyin-like experience including Ctrl+Space
+		switching, Shift toggle, inline preedit, 5-candidate pages,
+		and cloud pinyin.
+	</longdescription>
+	<upstream>
+		<remote-id type="github">local/chinese-env</remote-id>
+	</upstream>
+</pkgmetadata>

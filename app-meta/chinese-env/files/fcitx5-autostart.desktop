@@ -1,0 +1,16 @@
+[Desktop Entry]
+Name=Fcitx 5
+Name[zh_CN]=Fcitx 5 输入法
+GenericName=Input Method
+GenericName[zh_CN]=输入法
+Comment=Start Fcitx5 input method framework
+Comment[zh_CN]=启动 Fcitx5 输入法框架
+Exec=fcitx5
+Icon=fcitx5
+Type=Application
+Terminal=false
+Categories=System;Utility;
+StartupNotify=false
+X-KDE-autostart-phase=1
+X-KDE-autostart-condition=fcitx5
+X-GNOME-Autostart-Phase=Initialization

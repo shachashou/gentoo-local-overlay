@@ -1,0 +1,19 @@
+[Hotkey]
+# Toggle input method on/off — Ctrl+Space
+# This is the primary hotkey to activate/deactivate Fcitx5.
+TriggerKeys=Control+space
+# Disable enumerate cycling (we use Ctrl+Space for direct toggle)
+EnumerateForwardKeys=
+EnumerateBackwardKeys=
+
+[Behavior]
+# Activate input method by default when application starts
+ActiveByDefault=True
+# Show input method name briefly when switching
+ShowInputMethodInformationWhenChanging=True
+# Enable inline preedit (candidates appear inline, not in a separate window)
+PreeditEnabledByDefault=True
+# Compose mode: show candidates as you type inline
+PreeditMode=Compose
+# Share input state across all windows
+ShareInputState=All
