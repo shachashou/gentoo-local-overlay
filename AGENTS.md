@@ -51,7 +51,7 @@ mandatory.  Create them all in one pass — never leave a package half-built.
 |------|----------|-------|
 | `metadata.xml` | ✅ | Maintainer, description, upstream remote-id |
 | `<name>-<version>.ebuild` | ✅ | EAPI=8, follows all Ebuild Conventions |
-| `Manifest` | ✅ | Run `pkgdev manifest` after ebuild is written |
+| `Manifest` | ✅ | no need |
 | `files/` | ⚠️ optional | Desktop entries, launcher scripts, patches |
 
 ### Repository-level (create once, verify on each new package)
@@ -77,6 +77,6 @@ Before declaring an ebuild done, verify **every** item below:
 - [ ] `src_install` ends with `dobin` or `dosym` to expose the binary
 - [ ] `pkg_postinst` has `einfo` messages guiding the user
 - [ ] `pkg_postrm` exists if `pkg_postinst` registers desktop/icons
-- [ ] `Manifest` file exists (run `pkgdev manifest` in the package dir)
+- [ ] `Manifest` no need
 - [ ] Source fetching convention matches: `git-r3` for source builds, `SRC_URI` only for prebuilt binaries
 - [ ] `RESTRICT` is set appropriately (`network-sandbox` for Go/.NET, `strip mirror` for prebuilt)

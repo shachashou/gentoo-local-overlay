@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>user@localhost</email>
+		<name>Local User</name>
+	</maintainer>
+	<longdescription lang="en">
+		Fira Code is a free monospaced font containing programming ligatures
+		for common multi-character combinations. This is just a font rendering
+		feature: underlying code remains ASCII-compatible. Fira Code supports
+		a wide variety of arrows, box-drawing glyphs, powerline symbols, and
+		Unicode progress bar characters (U+EE00-U+EE0B). It also provides
+		character variants (cv01-cv99) and stylistic sets (ss01-ss20) for
+		customizing ligatures and glyph styles.
+	</longdescription>
+	<upstream>
+		<remote-id type="github">tonsky/FiraCode</remote-id>
+	</upstream>
+</pkgmetadata>
