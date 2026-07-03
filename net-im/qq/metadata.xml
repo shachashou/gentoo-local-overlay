@@ -16,6 +16,6 @@
 		群消息、QQ 空间等完整功能。
 	</longdescription>
 	<upstream>
-		<remote-id type="github">https://github.com/tencent-qq/qq-linux</remote-id>
+		<remote-id type="github">tencent-qq/qq-linux</remote-id>
 	</upstream>
 </pkgmetadata>

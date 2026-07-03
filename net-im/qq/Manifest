@@ -1,0 +1,5 @@
+# QQ Linux .deb package — run this command to generate proper checksums:
+#   cd net-im/qq && pkgdev manifest
+#
+# Or manually:
+#   ebuild qq-3.2.29.ebuild manifest

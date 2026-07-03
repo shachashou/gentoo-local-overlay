@@ -1,0 +1,19 @@
+# Gentoo — files to ignore in a local ebuild overlay
+
+# Manifest checksums (generated, not committed in some workflows)
+# Uncomment if you prefer to not track Manifests in VCS:
+# */Manifest
+
+# Distfiles (if you have a local distfiles mirror)
+/distfiles/
+
+# Editor / IDE
+*~
+*.swp
+*.swo
+.vscode/
+.idea/
+
+# OS junk
+Thumbs.db
+.DS_Store

@@ -1,0 +1,2 @@
+# This Manifest is for git-r3 packages. No DIST entries needed.
+# If you switch to SRC_URI-based fetching, run: pkgdev manifest
