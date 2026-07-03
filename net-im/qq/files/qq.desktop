@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Name=QQ
+Name[zh_CN]=QQ
+Comment=Tencent QQ instant messaging
+Comment[zh_CN]=腾讯QQ即时通讯
+Exec=qq
+Icon=qq
+Terminal=false
+Categories=Network;InstantMessaging;Chat;
+Keywords=qq;tencent;chat;message;im;
+StartupWMClass=qq

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>local@gentoo.org</email>
+		<name>Local Overlay Maintainer</name>
+	</maintainer>
+	<longdescription lang="en">
+		QQ Linux - Tencent QQ instant messaging client for Linux.
+		QQNT-based Electron application with full messaging features
+		including chat, file transfer, group messaging, and Qzone.
+	</longdescription>
+	<longdescription lang="zh">
+		QQ Linux 版 - 腾讯 QQ 即时通讯客户端。
+		基于 QQNT 架构的 Electron 应用，支持聊天、文件传输、
+		群消息、QQ 空间等完整功能。
+	</longdescription>
+	<upstream>
+		<remote-id type="github">https://github.com/tencent-qq/qq-linux</remote-id>
+	</upstream>
+</pkgmetadata>
