@@ -19,15 +19,12 @@ LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="amd64"
 
-# Build dependency: .NET 10.0 SDK
-# NOTE: If dev-dotnet/dotnet-sdk-10.0 is not yet in the Gentoo tree,
-# install it manually before emerging:
-#   wget https://dot.net/v1/dotnet-install.sh
-#   chmod +x dotnet-install.sh
-#   ./dotnet-install.sh --channel 10.0 --install-dir /opt/dotnet
-#   export DOTNET_ROOT=/opt/dotnet PATH="/opt/dotnet:${PATH}"
+# Build dependency: .NET 10.0 SDK (source or binary package)
 BDEPEND="
-	>=dev-dotnet/dotnet-sdk-10.0
+	|| (
+		>=dev-dotnet/dotnet-sdk-10.0
+		>=dev-dotnet/dotnet-sdk-bin-10.0
+	)
 "
 
 # Runtime dependencies:
