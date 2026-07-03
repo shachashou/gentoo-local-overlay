@@ -22,10 +22,7 @@ KEYWORDS="amd64"
 
 # Electron-based, all deps self-contained in the deb
 RDEPEND="
-	|| (
-		x11-libs/gtk+:3
-		>=x11-libs/gtk+-3.0
-	)
+	x11-libs/gtk+:3
 	dev-libs/nss
 	media-libs/alsa-lib
 "
