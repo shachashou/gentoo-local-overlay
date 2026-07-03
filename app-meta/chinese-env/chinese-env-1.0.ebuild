@@ -29,6 +29,14 @@ RDEPEND+="
 	media-fonts/win11-fonts
 "
 
+# --- Monospace & terminal fonts ---
+# FiraCode: monospace/code editor font
+# Ubuntu Font Family: terminal/Konsole font (Ubuntu Mono)
+RDEPEND+="
+	media-fonts/firacode
+	media-fonts/ubuntu-font-family
+"
+
 # --- Win11 Fluent theme ---
 RDEPEND+="
 	x11-themes/fcitx5-win11-theme
@@ -108,6 +116,95 @@ pkg_postinst() {
 		fi
 	done
 
+	# ====================================================================
+	# KDE Font Auto-Configuration
+	# ====================================================================
+	# Font assignment:
+	#   - General UI / desktop:  Microsoft YaHei (win11-fonts)
+	#   - Monospace / code:      Fira Code (firacode)
+	#   - Terminal / Konsole:    Ubuntu Mono (ubuntu-font-family)
+	# ====================================================================
+
+	einfo ""
+	einfo "Configuring KDE fonts for existing users..."
+
+	local kdeglobals konsole_profile konsolerc
+
+	for user_home in /home/*; do
+		[ -d "${user_home}" ] || continue
+		user=$(basename "${user_home}")
+		id "${user}" &>/dev/null || continue
+
+		uid=$(id -u "${user}" 2>/dev/null)
+		gid=$(id -g "${user}" 2>/dev/null)
+
+		# --- 1. KDE global font settings (~/.config/kdeglobals) ---
+		kdeglobals="${user_home}/.config/kdeglobals"
+		mkdir -p "${user_home}/.config" || continue
+
+		if [ ! -f "${kdeglobals}" ] || ! grep -q '^\[General\]' "${kdeglobals}" 2>/dev/null; then
+			# No existing [General] section — safe to write
+			cat >> "${kdeglobals}" <<- 'KDE_FONTS_EOF'
+			[General]
+			font=Microsoft YaHei,10,-1,5,50,0,0,0,0,0,Regular
+			fixed=Fira Code,10,-1,5,50,0,0,0,0,0,Regular
+			smallestReadableFont=Microsoft YaHei,8,-1,5,50,0,0,0,0,0,Regular
+			toolBarFont=Microsoft YaHei,9,-1,5,50,0,0,0,0,0,Regular
+			menuFont=Microsoft YaHei,10,-1,5,50,0,0,0,0,0,Regular
+			KDE_FONTS_EOF
+			einfo "  → Wrote KDE font defaults for user '${user}'"
+		else
+			# Existing [General] section — update only if font/fixed not already set
+			if ! grep -q '^font=' "${kdeglobals}" 2>/dev/null; then
+				sed -i '/^\[General\]/a font=Microsoft YaHei,10,-1,5,50,0,0,0,0,0,Regular' "${kdeglobals}"
+			fi
+			if ! grep -q '^fixed=' "${kdeglobals}" 2>/dev/null; then
+				sed -i '/^\[General\]/a fixed=Fira Code,10,-1,5,50,0,0,0,0,0,Regular' "${kdeglobals}"
+			fi
+			einfo "  → Merged KDE font settings for user '${user}'"
+		fi
+
+		# --- 2. Konsole profile: Ubuntu Mono for terminal ---
+		konsole_profile="${user_home}/.local/share/konsole"
+		mkdir -p "${konsole_profile}" || continue
+		konsole_profile="${konsole_profile}/ChineseEnv.profile"
+
+		if [ ! -f "${konsole_profile}" ]; then
+			cat > "${konsole_profile}" <<- 'KONSOLE_PROFILE_EOF'
+			[Appearance]
+			ColorScheme=BlackOnWhite
+			Font=Ubuntu Mono,12,-1,5,50,0,0,0,0,0,Regular
+
+			[General]
+			Name=ChineseEnv
+			Parent=FALLBACK/
+
+			[Scrolling]
+			ScrollBarPosition=2
+			KONSOLE_PROFILE_EOF
+		fi
+
+		# --- 3. Set ChineseEnv as default Konsole profile ---
+		konsolerc="${user_home}/.config/konsolerc"
+		if [ ! -f "${konsolerc}" ] || ! grep -q 'DefaultProfile=ChineseEnv' "${konsolerc}" 2>/dev/null; then
+			cat >> "${konsolerc}" <<- 'KONSOLERC_EOF'
+			[Desktop Entry]
+			DefaultProfile=ChineseEnv.profile
+
+			[MainWindow]
+			DefaultProfile=ChineseEnv.profile
+			KONSOLERC_EOF
+			einfo "  → Set Konsole default profile for user '${user}'"
+		fi
+
+		# Fix ownership
+		if [ -n "${uid}" ] && [ -n "${gid}" ]; then
+			chown -R "${uid}:${gid}" "${user_home}/.config/kdeglobals" 2>/dev/null || true
+			chown -R "${uid}:${gid}" "${user_home}/.config/konsolerc" 2>/dev/null || true
+			chown -R "${uid}:${gid}" "${user_home}/.local/share/konsole" 2>/dev/null || true
+		fi
+	done
+
 	einfo ""
 	einfo "=================================================================="
 	einfo "  ✔ Chinese input environment has been installed!"
@@ -117,6 +214,8 @@ pkg_postinst() {
 	einfo "    • Fcitx5 input method framework (core, configtool, addons)"
 	einfo "    • Qt IM module for KDE/Qt application integration"
 	einfo "    • Chinese fonts: Noto CJK, Arphic, Win11 Chinese Simplified"
+	einfo "    • Monospace fonts: Fira Code (code editors / IDEs)"
+	einfo "    • Terminal fonts: Ubuntu Mono (Konsole / shell)"
 	einfo "    • Win11 Fluent Design theme for Fcitx5"
 	einfo ""
 	einfo "  What was configured:"
@@ -128,6 +227,12 @@ pkg_postinst() {
 	einfo "    • Cloud pinyin enabled for better suggestions"
 	einfo "    • Auto-start via /etc/xdg/autostart/ (KDE Phase 1)"
 	einfo "    • Environment variables: GTK_IM_MODULE, QT_IM_MODULE, XMODIFIERS"
+	einfo ""
+	einfo "  KDE Font auto-configuration:"
+	einfo "    • KDE UI font  → Microsoft YaHei 10pt"
+	einfo "    • Monospace    → Fira Code 10pt (kdeglobals fixed=)"
+	einfo "    • Konsole      → Ubuntu Mono 12pt (ChineseEnv.profile)"
+	einfo "    • (existing kdeglobals/konsolerc are merged, not overwritten)"
 	einfo ""
 	einfo "  Per-user Fcitx5 config files were placed in ~/.config/fcitx5/"
 	einfo "  for existing users (existing configs were NOT overwritten)."
