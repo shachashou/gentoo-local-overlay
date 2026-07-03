@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<name>Gentoo Local Overlay Maintainer</name>
+	</maintainer>
+	<longdescription lang="en">
+		ComfyUI is a powerful and modular stable diffusion GUI and backend.
+		It features a graph/nodes/flowchart based interface for designing
+		and executing advanced stable diffusion pipelines without coding.
+		Supports SD1.x, SD2.x, SDXL, SVD, Stable Cascade, Flux, and many
+		other models.
+	</longdescription>
+	<upstream>
+		<remote-id type="github">Comfy-Org/ComfyUI</remote-id>
+	</upstream>
+</pkgmetadata>
