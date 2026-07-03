@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>user@localhost</email>
+		<name>Local User</name>
+	</maintainer>
+	<longdescription lang="en">
+		Windows 11 Chinese Simplified system fonts.
+		These fonts are extracted from official Windows 11 ISO images
+		and repackaged by the liblaf/win-fonts project.
+
+		Includes TrueType (.ttf) and TrueType Collection (.ttc) fonts:
+		Microsoft YaHei (微软雅黑), SimSun (宋体), SimHei (黑体),
+		KaiTi (楷体), FangSong (仿宋),
+		and other Chinese Simplified Windows system fonts.
+	</longdescription>
+	<upstream>
+		<remote-id type="github">liblaf/win-fonts</remote-id>
+	</upstream>
+</pkgmetadata>
