@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>user@localhost</email>
+		<name>Local User</name>
+	</maintainer>
+	<longdescription lang="en">
+		sing-box is a universal proxy platform.
+		It supports a wide range of protocols including VLESS, VMess,
+		Trojan, Shadowsocks, Hysteria 2, TUIC, WireGuard, SOCKS, HTTP,
+		and many inbound/outbound combinations.
+	</longdescription>
+	<upstream>
+		<remote-id type="github">SagerNet/sing-box</remote-id>
+	</upstream>
+</pkgmetadata>

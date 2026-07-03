@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=v2rayN
+Comment=A GUI client for Xray and sing-box
+Exec=v2rayn
+Icon=v2rayn
+Terminal=false
+Categories=Network;
+Keywords=proxy;vpn;v2ray;xray;shadowsocks;trojan;vmess;

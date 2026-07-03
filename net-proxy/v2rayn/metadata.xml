@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>user@localhost</email>
+		<name>Local User</name>
+	</maintainer>
+	<longdescription lang="en">
+		v2rayN is a GUI client for Windows, Linux and macOS.
+		It supports Xray core and sing-box core, providing a graphical
+		interface to manage proxy configurations.
+
+		Supported protocols:
+		- VLESS / VMess / Trojan
+		- HTTP / SOCKS
+		- Shadowsocks
+		- Hysteria2
+		- TUIC
+		- WireGuard
+		- AnyTLS
+	</longdescription>
+	<upstream>
+		<remote-id type="github">2dust/v2rayN</remote-id>
+	</upstream>
+</pkgmetadata>

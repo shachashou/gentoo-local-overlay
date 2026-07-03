@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>user@localhost</email>
+		<name>Local User</name>
+	</maintainer>
+	<longdescription lang="en">
+		Xray-core is the core of Project X.
+		It supports VLESS, VMess, Trojan, Shadowsocks, SOCKS, HTTP,
+		WireGuard, Hysteria 2, XHTTP, REALITY, and many more protocols
+		and transports.
+	</longdescription>
+	<upstream>
+		<remote-id type="github">XTLS/Xray-core</remote-id>
+	</upstream>
+</pkgmetadata>
