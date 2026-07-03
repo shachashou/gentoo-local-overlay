@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>user@localhost</email>
+		<name>Local User</name>
+	</maintainer>
+	<longdescription lang="en">
+		LACT is a Linux GPU Configuration And Monitoring Tool.
+		It supports AMD, Nvidia, and Intel GPUs with features including:
+		detailed GPU information reporting, configurable historical
+		charts for power/thermals/frequency, power configuration,
+		fan curves, overclocking (GPU/VRAM clocks and voltage),
+		settings profiles with automatic activation, and an
+		OpenTelemetry metrics exporter.
+	</longdescription>
+	<upstream>
+		<remote-id type="github">ilya-zlobintsev/LACT</remote-id>
+	</upstream>
+</pkgmetadata>
