@@ -16,10 +16,11 @@ KEYWORDS="amd64"
 # cloudpinyin USE flag enables cloud pinyin suggestions
 # Only Qt IM module needed — KDE Plasma is Qt-based
 RDEPEND="
-	app-i18n/fcitx
-	app-i18n/fcitx-configtool
-	app-i18n/fcitx-chinese-addons[cloudpinyin]
-	app-i18n/fcitx-qt
+  app-i18n/fcitx
+  app-i18n/fcitx-configtool
+  app-i18n/fcitx-chinese-addons[cloudpinyin]
+  app-i18n/fcitx-qt
+  app-i18n/fcitx-gtk
 "
 
 # --- Chinese fonts ---

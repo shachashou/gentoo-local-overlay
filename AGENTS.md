@@ -56,12 +56,6 @@ Before writing any ebuild, verify **every** `::gentoo` dependency is real:
    `app-i18n/fcitx5`; config tool is `app-i18n/fcitx-configtool`, **not**
    `app-i18n/fcitx5-configtool`).
 
-### GUI Toolkit Preference
-
-This is a **KDE Plasma** environment. For GUI dependencies:
-- **Prefer Qt** — only depend on `-qt` IM modules and Qt-based tools.
-- Only add GTK dependencies when there is no Qt alternative.
-
 ## New Package Checklist
 
 When creating a new package (`<category>/<name>/`), the following files are
