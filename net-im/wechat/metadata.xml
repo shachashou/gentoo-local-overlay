@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<name>Gentoo Local Overlay Maintainer</name>
+	</maintainer>
+	<longdescription>
+		Tencent WeChat (Weixin) desktop client for Linux.
+		Universal binary (Electron-based), self-contained.
+	</longdescription>
+	<upstream>
+		<remote-id type="github">tencent-wechat</remote-id>
+	</upstream>
+</pkgmetadata>
