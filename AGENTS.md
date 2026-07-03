@@ -3,7 +3,11 @@
 ## What This Is
 
 A Gentoo Linux local ebuild overlay.
-All packages are for **amd64** only (`amd64` keyword) build from github source build.
+All packages are for **amd64** only (`amd64` keyword).
+
+**Source-first policy**: Always prefer building from source (git).
+Only fall back to prebuilt packages (.deb, .rpm, AppImage, etc.) when source
+builds are genuinely infeasible (e.g., proprietary binaries with no public source).
 
 ## Repository Layout
 
